@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Try AI Models" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Try AI models
+    </h1>
+
+    <p class="govuk-body-l">
+      Test different AI models with your own prompts.
+    </p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Do not input Official Sensitive data or any personally identifiable information. This is for testing purposes only.
+      </strong>
+    </div>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="model-select">
+            Choose AI model
+          </label>
+          <select class="govuk-select" id="model-select" name="model" onchange="switchModel()">
+            <option value="claude-3-5-sonnet" {% if data['model'] == 'claude-3-5-sonnet' or not data['model'] %}selected{% endif %}>Claude 3.5 Sonnet</option>
+            <option value="claude-3-haiku" {% if data['model'] == 'claude-3-haiku' %}selected{% endif %}>Claude 3 Haiku</option>
+            <option value="amazon-titan-text" {% if data['model'] == 'amazon-titan-text' %}selected{% endif %}>Amazon Titan Text</option>
+            <option value="gpt-4o" {% if data['model'] == 'gpt-4o' %}selected{% endif %}>GPT-4o</option>
+            <option value="gpt-3-5-turbo" {% if data['model'] == 'gpt-3-5-turbo' %}selected{% endif %}>GPT-3.5 Turbo</option>
+          </select>
+        </div>
+      </div>
+      <div class="govuk-grid-column-two-thirds">
+        <div id="model-description">
+          {% if data['model'] == 'claude-3-5-sonnet' or not data['model'] %}
+            <p class="govuk-body"><strong>Claude 3.5 Sonnet:</strong> Advanced reasoning, coding, and analysis tasks. Best for complex problem-solving and detailed responses.</p>
+          {% elif data['model'] == 'claude-3-haiku' %}
+            <p class="govuk-body"><strong>Claude 3 Haiku:</strong> Fast, lightweight model for simple tasks and quick responses. Good for straightforward questions and basic analysis.</p>
+          {% elif data['model'] == 'amazon-titan-text' %}
+            <p class="govuk-body"><strong>Amazon Titan Text:</strong> Amazon's foundational model for text generation and summarization. Reliable for general text tasks.</p>
+          {% elif data['model'] == 'gpt-4o' %}
+            <p class="govuk-body"><strong>GPT-4o:</strong> Latest GPT-4 model optimized for efficiency and performance. Excellent for analysis, writing, and problem-solving.</p>
+          {% elif data['model'] == 'gpt-3-5-turbo' %}
+            <p class="govuk-body"><strong>GPT-3.5 Turbo:</strong> Fast and capable model for most general-purpose tasks. Good balance of speed and capability.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat interface -->
+    <div class="chat-container" style="background: #f3f2f1; border: 2px solid #b1b4b6; padding: 20px; min-height: 400px; margin-bottom: 30px; border-radius: 4px;">
+      <div id="chat-messages">
+        <div class="chat-message system-message" style="background: #1d70b8; color: white; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
+          <strong>System:</strong> <span id="current-model">{{ data['model-name'] or 'Claude 3.5 Sonnet' }}</span> is ready. You can now start a conversation.
+        </div>
+        
+        {% if data['chat-history'] %}
+          {% for message in data['chat-history'] %}
+            <div class="chat-message {% if message.type == 'user' %}user-message{% else %}ai-message{% endif %}" 
+                 style="padding: 15px; margin-bottom: 15px; border-radius: 4px; {% if message.type == 'user' %}background: #005ea5; color: white; margin-left: 20%;{% else %}background: white; border: 1px solid #b1b4b6; margin-right: 20%;{% endif %}">
+              <strong>{% if message.type == 'user' %}You{% else %}{{ message.model or 'AI' }}{% endif %}:</strong>
+              <p style="margin: 5px 0 0 0;">{{ message.content }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Message input form -->
+    <form action="/sandbox/chat" method="post" class="govuk-!-margin-bottom-9">
+      <input type="hidden" name="model" id="selected-model" value="{{ data['model'] or 'claude-3-5-sonnet' }}">
+      
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="message">
+          Your message
+        </label>
+        <div id="message-hint" class="govuk-hint">
+          Ask a question or give instructions to the AI model.
+        </div>
+        <textarea class="govuk-textarea" id="message" name="message" rows="4" aria-describedby="message-hint" placeholder="Type your message here..."></textarea>
+      </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button" id="send-button">
+          Send message
+        </button>
+        <a href="/sandbox/chat/new-session" class="govuk-button govuk-button--secondary">
+          New conversation
+        </a>
+        <a href="/sandbox" class="govuk-button govuk-button--secondary">
+          Back to sandbox
+        </a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+const modelDescriptions = {
+  'claude-3-5-sonnet': 'Advanced reasoning, coding, and analysis tasks. Best for complex problem-solving and detailed responses.',
+  'claude-3-haiku': 'Fast, lightweight model for simple tasks and quick responses. Good for straightforward questions and basic analysis.',
+  'amazon-titan-text': 'Amazon\'s foundational model for text generation and summarization. Reliable for general text tasks.',
+  'gpt-4o': 'Latest GPT-4 model optimized for efficiency and performance. Excellent for analysis, writing, and problem-solving.',
+  'gpt-3-5-turbo': 'Fast and capable model for most general-purpose tasks. Good balance of speed and capability.'
+};
+
+const modelNames = {
+  'claude-3-5-sonnet': 'Claude 3.5 Sonnet',
+  'claude-3-haiku': 'Claude 3 Haiku',
+  'amazon-titan-text': 'Amazon Titan Text',
+  'gpt-4o': 'GPT-4o',
+  'gpt-3-5-turbo': 'GPT-3.5 Turbo'
+};
+
+function switchModel() {
+  const select = document.getElementById('model-select');
+  const selectedModel = select.value;
+  
+  // Update hidden form field
+  document.getElementById('selected-model').value = selectedModel;
+  
+  // Update description
+  const descriptionDiv = document.getElementById('model-description');
+  descriptionDiv.innerHTML = '<p class="govuk-body"><strong>' + modelNames[selectedModel] + ':</strong> ' + modelDescriptions[selectedModel] + '</p>';
+  
+  // Update system message
+  const currentModelSpan = document.getElementById('current-model');
+  currentModelSpan.textContent = modelNames[selectedModel];
+  
+  // Clear chat history when switching models
+  window.location.href = '/sandbox/chat/new-session?model=' + selectedModel;
+}
+
+document.getElementById('send-button').addEventListener('click', function(e) {
+  const messageInput = document.getElementById('message');
+  if (!messageInput.value.trim()) {
+    e.preventDefault();
+    alert('Please enter a message before sending.');
+    return;
+  }
+  
+  // Show loading state
+  this.innerHTML = 'Sending...';
+  this.disabled = true;
+});
+
+// Auto-scroll to bottom of chat
+window.addEventListener('load', function() {
+  const chatContainer = document.querySelector('.chat-container');
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+});
+</script>
+
+{% endblock %} 

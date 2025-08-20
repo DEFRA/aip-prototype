@@ -1,0 +1,139 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Documentation" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Documentation
+    </h1>
+
+    <p class="govuk-body-l">
+      Guidance and resources for using the AI platform safely and effectively.
+    </p>
+
+    <h2 class="govuk-heading-l">Getting started</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/guidance/overview" class="govuk-link">AI Platform overview</a>
+        <p class="govuk-body-s">Introduction to the platform and what services are available.</p>
+      </li>
+      <li>
+        <a href="/guidance/getting-started" class="govuk-link">Getting started guide</a>
+        <p class="govuk-body-s">Step-by-step guide to requesting and using AI services.</p>
+      </li>
+      <li>
+        <a href="/guidance/which-service" class="govuk-link">Which service is right for me?</a>
+        <p class="govuk-body-s">Help choosing between developer tools, LLM integration, sandbox, and low-code agents.</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Security and compliance</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/guidance/security" class="govuk-link">Security guidelines for AI use</a>
+        <p class="govuk-body-s">Essential security requirements and best practices.</p>
+      </li>
+      <li>
+        <a href="/guidance/data-protection" class="govuk-link">Data protection and AI</a>
+        <p class="govuk-body-s">How to handle different data classifications when using AI tools.</p>
+      </li>
+      <li>
+        <a href="/guidance/data-classification" class="govuk-link">Data classification guidance</a>
+        <p class="govuk-body-s">Understanding Public, Internal, Official, and Official Sensitive data.</p>
+      </li>
+      <li>
+        <a href="/guidance/banned-tools" class="govuk-link">Banned AI tools and services</a>
+        <p class="govuk-body-s">List of AI tools that are not approved for use within Defra.</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">API and technical guidance</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/guidance/api-security" class="govuk-link">Securing your API keys</a>
+        <p class="govuk-body-s">How to store, use, and protect your API credentials.</p>
+      </li>
+      <li>
+        <a href="/guidance/best-practices" class="govuk-link">API usage best practices</a>
+        <p class="govuk-body-s">Optimizing your use of AI APIs for cost and performance.</p>
+      </li>
+      <li>
+        <a href="/guidance/monitoring" class="govuk-link">Monitoring your usage</a>
+        <p class="govuk-body-s">Understanding usage limits, billing, and monitoring tools.</p>
+      </li>
+      <li>
+        <a href="/guidance/integration-patterns" class="govuk-link">Common integration patterns</a>
+        <p class="govuk-body-s">Examples and patterns for integrating AI into your applications.</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Model-specific guidance</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/guidance/model-selection" class="govuk-link">Choosing the right AI model</a>
+        <p class="govuk-body-s">Comparison of available models and their strengths.</p>
+      </li>
+      <li>
+        <a href="/guidance/prompt-engineering" class="govuk-link">Prompt engineering best practices</a>
+        <p class="govuk-body-s">How to write effective prompts for better AI responses.</p>
+      </li>
+      <li>
+        <a href="/guidance/bedrock-models" class="govuk-link">AWS Bedrock models guide</a>
+        <p class="govuk-body-s">Detailed guide to Claude, Titan, and other Bedrock models.</p>
+      </li>
+      <li>
+        <a href="/guidance/openai-models" class="govuk-link">Azure OpenAI models guide</a>
+        <p class="govuk-body-s">Using GPT-4, GPT-3.5, and other OpenAI models effectively.</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Accessibility and inclusive design</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/guidance/accessibility" class="govuk-link">Making AI services accessible</a>
+        <p class="govuk-body-s">Ensuring AI-powered features meet accessibility standards.</p>
+      </li>
+      <li>
+        <a href="/guidance/inclusive-ai" class="govuk-link">Inclusive AI design principles</a>
+        <p class="govuk-body-s">Building AI services that work for all users.</p>
+      </li>
+      <li>
+        <a href="/guidance/bias-testing" class="govuk-link">Testing for AI bias</a>
+        <p class="govuk-body-s">How to identify and mitigate bias in AI systems.</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Support and training</h2>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="/support" class="govuk-link">Support and training resources</a>
+        <p class="govuk-body-s">Available training, workshops, and support channels.</p>
+      </li>
+      <li>
+        <a href="/guidance/troubleshooting" class="govuk-link">Troubleshooting common issues</a>
+        <p class="govuk-body-s">Solutions to frequently encountered problems.</p>
+      </li>
+      <li>
+        <a href="/guidance/faq" class="govuk-link">Frequently asked questions</a>
+        <p class="govuk-body-s">Answers to common questions about the AI platform.</p>
+      </li>
+      <li>
+        <a href="/contact" class="govuk-link">Contact the AI Platform team</a>
+        <p class="govuk-body-s">How to get help and report issues.</p>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %} 

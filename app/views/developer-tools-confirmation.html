@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Request submitted" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        API access request submitted
+      </h1>
+      <div class="govuk-panel__body">
+        Your reference number<br><strong>{{ data['service-code'] or 'CDIO-D1234' }}</strong>
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      We have sent you a confirmation email.
+    </p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      Your request will be reviewed by the AI Platform team. This usually takes 2 to 3 working days.
+    </p>
+
+    <p class="govuk-body">
+      We'll contact you if we need more information about your request.
+    </p>
+
+    <p class="govuk-body">
+      Once approved, you'll receive:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>API keys and access credentials</li>
+      <li>Setup instructions and documentation</li>
+      <li>Security guidelines specific to your API type</li>
+      <li>Contact details for ongoing support</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">Your request details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          API type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['api-type'] == 'bedrock' %}
+            AWS Bedrock API
+          {% elif data['api-type'] == 'gpt' %}
+            Azure OpenAI GPT API
+          {% else %}
+            Not specified
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Service code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['service-code'] or 'Not provided' }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Data classification
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['data-classification'] %}
+            {% for classification in data['data-classification'] %}
+              {{ classification | title }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          {% else %}
+            Not specified
+          {% endif %}
+        </dd>
+      </div>
+    </dl>
+
+    <p class="govuk-body">
+      <a href="/developer-tools" class="govuk-link">Make another request</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/" class="govuk-link">Return to homepage</a>
+    </p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Need help?
+      </h2>
+      <p class="govuk-body-s">
+        If you have questions about your request, contact the AI Platform team.
+      </p>
+      <p class="govuk-body-s">
+        <a href="/contact" class="govuk-link">Contact us</a>
+      </p>
+      
+      <h3 class="govuk-heading-s">
+        Related guidance
+      </h3>
+      <ul class="govuk-list govuk-!-font-size-16">
+        <li>
+          <a href="/guidance/getting-started" class="govuk-link">
+            Getting started with AI tools
+          </a>
+        </li>
+        <li>
+          <a href="/guidance/security" class="govuk-link">
+            Security guidelines
+          </a>
+        </li>
+        <li>
+          <a href="/support" class="govuk-link">
+            Support and training
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+{% endblock %} 

@@ -1,5 +1,5 @@
 {
-  "serviceName": "aip-prototype",
+  "serviceName": "Defra Artificial Intelligence",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

@@ -1,0 +1,150 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Copilot Chat" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Microsoft Copilot Chat
+    </h1>
+
+    <p class="govuk-body-l">
+      AI-powered chat assistant available to all Defra staff for general productivity and assistance.
+    </p>
+
+    <div class="govuk-inset-text">
+      <p>
+        <strong>Good news:</strong> Microsoft Copilot Chat is already available to you through your Microsoft 365 account. You can start using it today at <a href="https://copilot.microsoft.com" class="govuk-link">copilot.microsoft.com</a> or in Microsoft Teams.
+      </p>
+    </div>
+
+    <h2 class="govuk-heading-l">What is Copilot Chat?</h2>
+
+    <p class="govuk-body">
+      Microsoft Copilot Chat is an AI assistant that can help with a wide range of tasks using natural language conversation. It's integrated with your Microsoft 365 environment and designed to enhance your productivity.
+    </p>
+
+    <h2 class="govuk-heading-l">What you can use it for</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Writing and communication</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Draft emails and documents</li>
+          <li>Improve writing style and tone</li>
+          <li>Summarize long texts</li>
+          <li>Create meeting agendas and notes</li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Research and analysis</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Research topics and gather information</li>
+          <li>Analyze data and trends</li>
+          <li>Generate ideas and solutions</li>
+          <li>Answer questions and explain concepts</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-l">How to access Copilot Chat</h2>
+
+    <ol class="govuk-list govuk-list--number">
+      <li><strong>Web browser:</strong> Go to <a href="https://copilot.microsoft.com" class="govuk-link">copilot.microsoft.com</a> and sign in with your Defra account</li>
+      <li><strong>Microsoft Teams:</strong> Look for the Copilot app in your Teams sidebar</li>
+      <li><strong>Office apps:</strong> Find Copilot features integrated into Word, Excel, PowerPoint, and Outlook</li>
+    </ol>
+
+    <h2 class="govuk-heading-l">Using Copilot Chat responsibly</h2>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Do not share Official Sensitive information, personal data, or confidential details in your conversations with Copilot Chat.
+      </strong>
+    </div>
+
+    <h3 class="govuk-heading-m">Best practices</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Check data classification</strong> - Only use Public or Internal information</li>
+      <li><strong>Verify outputs</strong> - Always review and fact-check AI-generated content</li>
+      <li><strong>Protect privacy</strong> - Don't include names, addresses, or personal details</li>
+      <li><strong>Stay professional</strong> - Use Copilot for work-related tasks only</li>
+      <li><strong>Be critical</strong> - AI can make mistakes or provide outdated information</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">What not to use it for</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Processing Official Sensitive or personal data</li>
+      <li>Making final decisions without human review</li>
+      <li>Accessing or sharing confidential information</li>
+      <li>Creating content that could be misleading or harmful</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Privacy and data protection</h2>
+
+    <p class="govuk-body">
+      Your conversations with Copilot Chat are subject to Microsoft's enterprise privacy controls:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Conversations are not used to train AI models</li>
+      <li>Data is processed within your organization's Microsoft 365 tenant</li>
+      <li>Standard Microsoft 365 data governance applies</li>
+      <li>Audit logs are maintained for compliance</li>
+    </ul>
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+      <a href="https://copilot.microsoft.com" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Start using Copilot Chat
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="m0,0 25,20 L0,40z"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="govuk-heading-l">Important policies and terms</h2>
+
+    <p class="govuk-body">
+      Before using Copilot Chat, please review these important documents:
+    </p>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="https://privacy.microsoft.com/en-us/privacystatement" class="govuk-link">Microsoft Privacy Statement</a>
+        <p class="govuk-body-s">How Microsoft handles your personal data and privacy</p>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/servicesagreement" class="govuk-link">Microsoft Services Agreement</a>
+        <p class="govuk-body-s">Terms of use for Microsoft online services</p>
+      </li>
+      <li>
+        <a href="/guidance/data-classification" class="govuk-link">Defra Data Classification Guidelines</a>
+        <p class="govuk-body-s">Understanding what data is appropriate to use with AI tools</p>
+      </li>
+      <li>
+        <a href="/guidance/ai-acceptable-use" class="govuk-link">Defra AI Acceptable Use Policy</a>
+        <p class="govuk-body-s">Guidelines for responsible AI use within Defra</p>
+      </li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Need help?</h2>
+
+    <p class="govuk-body">
+      If you have questions about using Copilot Chat or need support:
+    </p>
+
+    <ul class="govuk-list">
+      <li><a href="/support" class="govuk-link">Contact our AI support team</a></li>
+      <li><a href="/documentation" class="govuk-link">Browse our guidance documentation</a></li>
+      <li><a href="https://support.microsoft.com/en-us/copilot" class="govuk-link">Microsoft Copilot support resources</a></li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %} 

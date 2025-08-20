@@ -5,15 +5,74 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
+  <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <p class="govuk-body-l">
+      A safe place for Defra teams to explore and use artificial intelligence technologies securely.
+    </p>
+
+    <h2 class="govuk-heading-l">What you can do</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+
+        <h3 class="govuk-heading-m">
+          <a href="/sandbox" class="govuk-link govuk-link--no-visited-state">Experiment with AI models</a>
+        </h3>
+        <p class="govuk-body">
+          Test different AI models and prototype solutions in a secure sandbox environment. 
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">
+          <a href="/developer-tools" class="govuk-link govuk-link--no-visited-state">Use AI-enabled development tools</a>
+        </h3>
+        <p class="govuk-body">
+          Get API keys to use AI-powered coding assistants like GitHub Copilot and Cursor safely within Defra security requirements.
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">
+          <a href="/llm-integration" class="govuk-link govuk-link--no-visited-state">Build applications with large language models</a>
+        </h3>
+        <p class="govuk-body">
+          Integrate LLMs into your applications on the Core Data Platform. Request API keys through the CDP portal.
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">
+          <a href="/low-code-agents" class="govuk-link govuk-link--no-visited-state">Create low-code AI agents for back-office tasks</a>
+        </h3>
+        <p class="govuk-body">
+          Automate routine tasks using Microsoft Copilot Studio. We'll help you plan and implement solutions safely.
+        </p>
+      </div>
+             <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">
+          <a href="/copilot-chat" class="govuk-link govuk-link--no-visited-state">Use Copilot Chat</a>
+        </h3>
+        <p class="govuk-body">
+          Access Microsoft Copilot Chat for general AI assistance. Available to all Defra staff now.
+        </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <h3 class="govuk-heading-m">
+          <a href="/browse-ai-solutions" class="govuk-link govuk-link--no-visited-state">Browse existing AI solutions</a>
+        </h3>
+        <p class="govuk-body">
+          Discover AI agents and MCP servers already built by teams across Defra that you can use or learn from.
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+
   </div>
 </div>
 

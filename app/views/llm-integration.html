@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="LLM Integration" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Build applications with large language models
+    </h1>
+
+    <p class="govuk-body-l">
+      Integrate LLMs into your applications running on the Core Delivery Platform (CDP).
+    </p>
+
+    <h2 class="govuk-heading-l">Available LLM services</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">AWS Bedrock</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Claude 3.5 Sonnet</li>
+          <li>Claude 3 Haiku</li>
+          <li>Amazon Titan Text</li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Azure OpenAI</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>GPT-4o</li>
+          <li>GPT-3.5 Turbo</li>
+          <li>Text embedding models</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-l">How to get access</h2>
+
+    <ol class="govuk-list govuk-list--number">
+      <li>Create your service on the Core Delivery Platform</li>
+      <li>Request LLM API access through the CDP portal</li>
+      <li>Integrate the APIs into your application</li>
+      <li>Deploy through the CDP pipeline</li>
+    </ol>
+
+    <div class="govuk-inset-text">
+      <p>
+        <strong>Important:</strong> LLM access for production applications must be requested through the CDP portal. This ensures proper governance and monitoring for live services.
+      </p>
+    </div>
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+      <a href="https://cdp-portal.defra.gov.uk" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Go to CDP Portal
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="m0,0 25,20 L0,40z"/>
+        </svg>
+      </a>
+      <a href="/sandbox" class="govuk-button govuk-button--secondary">
+        Test models first
+      </a>
+    </div>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Do not send Official Sensitive data or personally identifiable information to LLM services without explicit approval and data classification review.
+      </strong>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %} 

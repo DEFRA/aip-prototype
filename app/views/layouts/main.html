@@ -4,3 +4,66 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 #}
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    navigation: [
+      {
+        href: "/manage/api-keys",
+        text: "Manage Keys",
+        active: pageName == "API Keys" or pageName == "Usage & Billing" or pageName == "Account Settings"
+      },
+      {
+        href: "/documentation",
+        text: "Documentation",
+        active: pageName == "Documentation" or pageName.startsWith("Guidance")
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if pageName != "Home" %}
+    {{ govukBreadcrumbs({
+      items: [
+        {
+          text: "Home",
+          href: "/"
+        },
+        {
+          text: pageName
+        }
+      ]
+    }) }}
+  {% endif %}
+
+  {% if showManageNavigation %}
+  <div class="govuk-width-container">
+    <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+      <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+        Manage your AI access
+      </h2>
+      <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item{% if pageName == "API Keys" %} govuk-prototype-kit-common-templates-contents-list__list-item--active{% endif %}">
+          <a href="/manage/api-keys" class="govuk-link govuk-link--no-visited-state">
+            API keys
+          </a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item{% if pageName == "Usage & Billing" %} govuk-prototype-kit-common-templates-contents-list__list-item--active{% endif %}">
+          <a href="/manage/usage" class="govuk-link govuk-link--no-visited-state">
+            Usage and billing
+          </a>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item{% if pageName == "Account Settings" %} govuk-prototype-kit-common-templates-contents-list__list-item--active{% endif %}">
+          <a href="/manage/account" class="govuk-link govuk-link--no-visited-state">
+            Account settings
+          </a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  {% endif %}
+{% endblock %}

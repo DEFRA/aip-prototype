@@ -1,0 +1,161 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Request API Key" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Request API key access
+    </h1>
+
+    <p class="govuk-body-l">
+      Request access to AI development tools or sandbox experimentation.
+    </p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        If you are a supplier and not processing Official Sensitive data, you should use your own tools and subscriptions rather than requesting access through this platform.
+      </strong>
+    </div>
+
+    <p class="govuk-body">
+      Some AI tools are not approved for use within Defra. <a href="/guidance/banned-tools" class="govuk-link">Check the list of banned AI tools</a> before making a request.
+    </p>
+
+    <form class="form" action="/request-api-key" method="post" novalidate>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            What type of access do you need?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access-developer" name="access-type" type="radio" value="developer" {% if data['access-type'] == 'developer' %}checked{% endif %}>
+              <label class="govuk-label govuk-radios__label" for="access-developer">
+                Developer tools
+              </label>
+              <div id="access-developer-hint" class="govuk-hint govuk-radios__hint">
+                AI-powered coding assistants like GitHub Copilot and Cursor for development work
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="access-sandbox" name="access-type" type="radio" value="sandbox" {% if data['access-type'] == 'sandbox' %}checked{% endif %}>
+              <label class="govuk-label govuk-radios__label" for="access-sandbox">
+                Sandbox experimentation
+              </label>
+              <div id="access-sandbox-hint" class="govuk-hint govuk-radios__hint">
+                Testing and experimentation with AI models in a secure sandbox environment
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Which API do you need access to?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="api-bedrock" name="api-type" type="radio" value="bedrock" {% if data['api-type'] == 'bedrock' %}checked{% endif %}>
+              <label class="govuk-label govuk-radios__label" for="api-bedrock">
+                AWS Bedrock API
+              </label>
+              <div id="api-bedrock-hint" class="govuk-hint govuk-radios__hint">
+                Access to Claude, Titan, and other models via AWS Bedrock
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="api-gpt" name="api-type" type="radio" value="gpt" {% if data['api-type'] == 'gpt' %}checked{% endif %}>
+              <label class="govuk-label govuk-radios__label" for="api-gpt">
+                Azure OpenAI GPT API
+              </label>
+              <div id="api-gpt-hint" class="govuk-hint govuk-radios__hint">
+                Access to GPT-4, GPT-3.5, and other OpenAI models via Azure
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="service-code">
+          Service Code
+        </label>
+        <div id="service-code-hint" class="govuk-hint">
+          Enter your Defra service code (for example, CDIO-D1234)
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="service-code" name="service-code" type="text" aria-describedby="service-code-hint" value="{{ data['service-code'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="justification">
+          Business justification
+        </label>
+        <div id="justification-hint" class="govuk-hint">
+          Explain how you will use this AI tool and why it's needed for your work
+        </div>
+        <textarea class="govuk-textarea" id="justification" name="justification" rows="5" aria-describedby="justification-hint">{{ data['justification'] }}</textarea>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--m" for="data-types">
+          What types of data will you process?
+        </label>
+        <div id="data-types-hint" class="govuk-hint">
+          Describe the types of data you may process with this AI tool
+        </div>
+        <textarea class="govuk-textarea" id="data-types" name="data-types" rows="3" aria-describedby="data-types-hint">{{ data['data-types'] }}</textarea>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Data classification
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="data-public" name="data-classification" type="checkbox" value="public" {% if data['data-classification'] and 'public' in data['data-classification'] %}checked{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="data-public">
+                Public
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="data-internal" name="data-classification" type="checkbox" value="internal" {% if data['data-classification'] and 'internal' in data['data-classification'] %}checked{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="data-internal">
+                Internal
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="data-official" name="data-classification" type="checkbox" value="official" {% if data['data-classification'] and 'official' in data['data-classification'] %}checked{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="data-official">
+                Official
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="data-official-sensitive" name="data-classification" type="checkbox" value="official-sensitive" {% if data['data-classification'] and 'official-sensitive' in data['data-classification'] %}checked{% endif %}>
+              <label class="govuk-label govuk-checkboxes__label" for="data-official-sensitive">
+                Official Sensitive
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Submit request
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %} 

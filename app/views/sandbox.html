@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="AI Sandbox" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      AI model sandbox
+    </h1>
+
+    <p class="govuk-body-l">
+      Test and compare different AI models in a secure environment.
+    </p>
+
+    <h2 class="govuk-heading-l">Available models</h2>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">AWS Bedrock Models</h3>
+        
+        <h4 class="govuk-heading-s">Claude 3.5 Sonnet</h4>
+        <p class="govuk-body">Advanced reasoning, coding, and analysis tasks. Best for complex problem-solving and detailed responses.</p>
+
+        <h4 class="govuk-heading-s">Claude 3 Haiku</h4>
+        <p class="govuk-body">Fast, lightweight model for simple tasks and quick responses. Good for straightforward questions and basic analysis.</p>
+
+        <h4 class="govuk-heading-s">Amazon Titan Text</h4>
+        <p class="govuk-body">Amazon's foundational model for text generation and summarization. Reliable for general text tasks.</p>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Azure OpenAI Models</h3>
+        
+        <h4 class="govuk-heading-s">GPT-4o</h4>
+        <p class="govuk-body">Latest GPT-4 model optimized for efficiency and performance. Excellent for analysis, writing, and problem-solving.</p>
+
+        <h4 class="govuk-heading-s">GPT-3.5 Turbo</h4>
+        <p class="govuk-body">Fast and capable model for most general-purpose tasks. Good balance of speed and capability.</p>
+      </div>
+    </div>
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+      <a href="/sandbox/chat" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Try AI models
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="m0,0 25,20 L0,40z"/>
+        </svg>
+      </a>
+      <a href="/request-api-key?access-type=sandbox" class="govuk-button govuk-button--secondary">
+        Request API key
+      </a>
+    </div>
+
+    <h2 class="govuk-heading-l">Usage guidelines</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Use the sandbox for testing, prototyping, and evaluation only</li>
+      <li>Do not process Official Sensitive data in the sandbox</li>
+      <li>All conversations are logged for security and usage monitoring</li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %} 

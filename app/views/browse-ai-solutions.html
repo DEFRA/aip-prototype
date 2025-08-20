@@ -1,0 +1,355 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Browse AI Solutions" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Browse existing AI solutions
+    </h1>
+
+    <p class="govuk-body-l">
+      Discover AI agents and MCP servers built by teams across Defra that you can use, adapt, or learn from.
+    </p>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#ai-agents">
+            AI Agents
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#mcp-servers">
+            MCP Servers
+          </a>
+        </li>
+      </ul>
+
+      <div class="govuk-tabs__panel" id="ai-agents">
+        <h2 class="govuk-heading-l">AI Agents</h2>
+        <p class="govuk-body">Conversational AI agents built with Microsoft Copilot Studio for various departmental needs.</p>
+        
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">HR Policy Assistant</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=agent-access&agent=hr-policy">
+                      Request access<span class="govuk-visually-hidden"> to HR Policy Assistant</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Answers common HR questions about policies, leave, benefits, and procedures. Integrated with SharePoint policy documents.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">HR Operations Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Available in</dt>
+                    <dd class="govuk-summary-list__value">Microsoft Teams</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data sources</dt>
+                    <dd class="govuk-summary-list__value">HR SharePoint, Policy documents</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">IT Support Bot</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=agent-access&agent=it-support">
+                      Request access<span class="govuk-visually-hidden"> to IT Support Bot</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Provides first-line IT support, troubleshooting guidance, and can escalate to human agents when needed.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Digital Services Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Available in</dt>
+                    <dd class="govuk-summary-list__value">Teams, Service portal</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data sources</dt>
+                    <dd class="govuk-summary-list__value">Knowledge base, FAQ database</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+          <div class="govuk-grid-column-one-half">
+            
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Procurement Guide</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=agent-access&agent=procurement">
+                      Request access<span class="govuk-visually-hidden"> to Procurement Guide</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Helps staff navigate procurement processes, find approved suppliers, and understand spending thresholds.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Commercial Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Available in</dt>
+                    <dd class="govuk-summary-list__value">Teams, Intranet</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data sources</dt>
+                    <dd class="govuk-summary-list__value">Procurement policies, Supplier lists</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Environmental Data Helper</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=agent-access&agent=env-data">
+                      Request access<span class="govuk-visually-hidden"> to Environmental Data Helper</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Assists with finding environmental datasets, understanding data formats, and locating relevant research.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Science & Analysis Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Available in</dt>
+                    <dd class="govuk-summary-list__value">Teams, Data portal</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data sources</dt>
+                    <dd class="govuk-summary-list__value">Open data catalogue, Research papers</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="govuk-inset-text">
+          <p>
+            <strong>Want to build your own agent?</strong> <a href="/low-code-agents" class="govuk-link">Learn about creating AI agents with Copilot Studio</a> or <a href="/contact" class="govuk-link">contact us for guidance</a> on getting started.
+          </p>
+        </div>
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mcp-servers">
+        <h2 class="govuk-heading-l">MCP Servers</h2>
+        <p class="govuk-body">Model Context Protocol servers that extend AI capabilities with specific tools and data access.</p>
+        
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Defra Data API Server</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=mcp-access&server=data-api">
+                      Request access<span class="govuk-visually-hidden"> to Defra Data API Server</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Provides AI models with secure access to Defra's open data APIs for environmental statistics and research data.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Data Architecture Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Capabilities</dt>
+                    <dd class="govuk-summary-list__value">Data queries, Statistics, Reporting</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data access</dt>
+                    <dd class="govuk-summary-list__value">Open data only</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Document Analysis Server</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=mcp-access&server=doc-analysis">
+                      Request access<span class="govuk-visually-hidden"> to Document Analysis Server</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Enables AI models to analyze documents, extract key information, and summarize content from approved document sources.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Knowledge Management Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Capabilities</dt>
+                    <dd class="govuk-summary-list__value">Text extraction, Summarization, Classification</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data access</dt>
+                    <dd class="govuk-summary-list__value">Public documents, Approved repositories</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+          <div class="govuk-grid-column-one-half">
+            
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">GIS Tools Server</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=mcp-access&server=gis-tools">
+                      Request access<span class="govuk-visually-hidden"> to GIS Tools Server</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Provides geospatial analysis capabilities, map generation, and location-based data queries for AI applications.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Geospatial Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Capabilities</dt>
+                    <dd class="govuk-summary-list__value">Mapping, Spatial analysis, Coordinates</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data access</dt>
+                    <dd class="govuk-summary-list__value">OS data, Public maps</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Policy Research Server</h3>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__actions-list-item">
+                    <a class="govuk-link" href="/contact?request=mcp-access&server=policy-research">
+                      Request access<span class="govuk-visually-hidden"> to Policy Research Server</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <p class="govuk-body-s">
+                  Searches policy documents, research papers, and government publications to support evidence-based decision making.
+                </p>
+                <dl class="govuk-summary-list govuk-summary-list--no-border">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Built by</dt>
+                    <dd class="govuk-summary-list__value">Policy Development Team</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Capabilities</dt>
+                    <dd class="govuk-summary-list__value">Document search, Citation, Evidence gathering</dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Data access</dt>
+                    <dd class="govuk-summary-list__value">Public research, Government publications</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="govuk-inset-text">
+          <p>
+            <strong>Interested in MCP development?</strong> <a href="/documentation" class="govuk-link">Read our technical documentation</a> or <a href="/contact" class="govuk-link">contact the development team</a> to learn about building MCP servers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-l">How to get access</h2>
+
+    <p class="govuk-body">
+      To use any of these AI solutions:
+    </p>
+
+    <ol class="govuk-list govuk-list--number">
+      <li>Click "Request access" on the solution you're interested in</li>
+      <li>Complete the access request form with your business justification</li>
+      <li>The team that built the solution will review your request</li>
+      <li>Once approved, you'll receive setup instructions and access details</li>
+    </ol>
+
+    <h2 class="govuk-heading-l">Share your solution</h2>
+
+    <p class="govuk-body">
+      Have you built an AI agent or MCP server that could benefit other teams? 
+      <a href="/contact?request=share-solution" class="govuk-link">Contact us</a> to have it featured in this directory.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %} 

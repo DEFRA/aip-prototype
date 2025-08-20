@@ -1,0 +1,216 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="API Keys" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <h1 class="govuk-heading-xl">
+      Your API keys
+    </h1>
+
+    <p class="govuk-body-l">
+      View and manage your API keys for different AI services.
+    </p>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        Keep your API keys secure. Do not share them or commit them to code repositories. Keys are hidden for security - use the copy button to copy them to your clipboard.
+      </strong>
+    </div>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#development-tools">
+            Development Tools
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#experimentation">
+            Experimentation
+          </a>
+        </li>
+      </ul>
+
+      <div class="govuk-tabs__panel" id="development-tools">
+        <h2 class="govuk-heading-l">Development tools API keys</h2>
+        <p class="govuk-body">API keys for AI-enabled coding assistants and development tools.</p>
+        
+                 <table class="govuk-table">
+           <thead class="govuk-table__head">
+             <tr class="govuk-table__row">
+               <th scope="col" class="govuk-table__header">Service</th>
+               <th scope="col" class="govuk-table__header">Status</th>
+               <th scope="col" class="govuk-table__header">Last Used</th>
+               <th scope="col" class="govuk-table__header">Expires</th>
+               <th scope="col" class="govuk-table__header">Actions</th>
+             </tr>
+           </thead>
+          <tbody class="govuk-table__body">
+                         <tr class="govuk-table__row">
+               <th scope="row" class="govuk-table__header">
+                 AWS Bedrock API
+                 <span id="bedrock-key" class="govuk-visually-hidden">sk-ant-api03-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+               </th>
+               <td class="govuk-table__cell">
+                 <span class="govuk-tag govuk-tag--green">Active</span>
+               </td>
+               <td class="govuk-table__cell">2 days ago</td>
+               <td class="govuk-table__cell">15 Mar 2025</td>
+               <td class="govuk-table__cell">
+                 <ul class="govuk-list">
+                   <li>
+                     <a href="#" onclick="copyToClipboard('bedrock-key'); return false;" class="govuk-link govuk-!-font-size-16">Copy key</a>
+                   </li>
+                   <li>
+                     <a href="/manage/regenerate-key?type=bedrock" class="govuk-link govuk-!-font-size-16">Regenerate</a>
+                   </li>
+                 </ul>
+               </td>
+             </tr>
+                         <tr class="govuk-table__row">
+               <th scope="row" class="govuk-table__header">
+                 Azure OpenAI GPT API
+                 <span id="gpt-key" class="govuk-visually-hidden">sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+                 <br>
+                 <span class="govuk-!-font-size-14 govuk-hint">Endpoint: https://defra-ai-platform.openai.azure.com/</span>
+               </th>
+               <td class="govuk-table__cell">
+                 <span class="govuk-tag govuk-tag--green">Active</span>
+               </td>
+               <td class="govuk-table__cell">Yesterday</td>
+               <td class="govuk-table__cell">15 Mar 2025</td>
+               <td class="govuk-table__cell">
+                 <ul class="govuk-list">
+                   <li>
+                     <a href="#" onclick="copyToClipboard('gpt-key'); return false;" class="govuk-link govuk-!-font-size-16">Copy key</a>
+                   </li>
+                   <li>
+                     <a href="/manage/regenerate-key?type=gpt" class="govuk-link govuk-!-font-size-16">Regenerate</a>
+                   </li>
+                 </ul>
+               </td>
+             </tr>
+          </tbody>
+        </table>
+
+        <h3 class="govuk-heading-m">Key details</h3>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Service Code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              CDIO-D1234
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Access level
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Standard development tools
+            </dd>
+          </div>
+        </dl>
+
+        <p class="govuk-body">
+          <a href="/developer-tools" class="govuk-link">Request additional development tool API keys</a>
+        </p>
+      </div>
+
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="experimentation">
+        <h2 class="govuk-heading-l">Experimentation access</h2>
+        <p class="govuk-body">Sandbox credentials and experimental AI model access.</p>
+        
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Service</th>
+              <th scope="col" class="govuk-table__header">Credentials</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+              <th scope="col" class="govuk-table__header">Last Used</th>
+              <th scope="col" class="govuk-table__header">Access Level</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+                         <tr class="govuk-table__row">
+               <th scope="row" class="govuk-table__header">AI Model Sandbox</th>
+               <td class="govuk-table__cell">
+                 <code class="govuk-!-font-family-monospace govuk-!-font-size-14">sandbox-user-••••••</code>
+                 <span id="sandbox-id" class="govuk-visually-hidden">sandbox-user-d1234</span>
+                 <br>
+                 <span class="govuk-!-font-size-14 govuk-hint">Account ID for sandbox access</span>
+               </td>
+               <td class="govuk-table__cell">
+                 <span class="govuk-tag govuk-tag--green">Active</span>
+               </td>
+               <td class="govuk-table__cell">Today</td>
+               <td class="govuk-table__cell">Standard sandbox</td>
+               <td class="govuk-table__cell">
+                 <ul class="govuk-list">
+                   <li>
+                     <a href="#" onclick="copyToClipboard('sandbox-id'); return false;" class="govuk-link govuk-!-font-size-16">Copy ID</a>
+                   </li>
+                   <li>
+                     <a href="/sandbox" class="govuk-link govuk-!-font-size-16">View sandbox</a>
+                   </li>
+                   <li>
+                     <a href="/sandbox/request-quota" class="govuk-link govuk-!-font-size-16">Request quota</a>
+                   </li>
+                 </ul>
+               </td>
+             </tr>
+          </tbody>
+        </table>
+
+
+
+        <p class="govuk-body">
+          <a href="/sandbox" class="govuk-link">Go to AI model sandbox</a> to test different models.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function copyToClipboard(elementId) {
+  const element = document.getElementById(elementId);
+  const text = element.textContent;
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      // Find the copy link that was clicked and show feedback
+      const copyLinks = document.querySelectorAll('a[onclick*="' + elementId + '"]');
+      copyLinks.forEach(function(link) {
+        const originalText = link.innerHTML;
+        link.innerHTML = 'Copied!';
+        link.style.color = '#00703c'; // Green color
+        setTimeout(function() {
+          link.innerHTML = originalText;
+          link.style.color = ''; // Reset color
+        }, 2000);
+      });
+    }).catch(function(err) {
+      console.error('Failed to copy: ', err);
+      alert('Failed to copy to clipboard. Please try again.');
+    });
+  } else {
+    // Fallback for browsers that don't support clipboard API
+    alert('Clipboard access not supported. Please copy manually.');
+  }
+}
+</script>
+
+{% endblock %} 

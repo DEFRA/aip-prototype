@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Request submitted" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        API access request submitted
+      </h1>
+      <div class="govuk-panel__body">
+        Your reference number<br><strong>{{ data['service-code'] or 'CDIO-D1234' }}</strong>
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      We have sent you a confirmation email.
+    </p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      Your request will be reviewed by the AI Platform team. This usually takes 2 to 3 working days.
+    </p>
+
+    <p class="govuk-body">
+      We'll contact you if we need more information about your request.
+    </p>
+
+    <p class="govuk-body">
+      Once approved, you'll receive:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>API keys and access credentials</li>
+      <li>Setup instructions and documentation</li>
+      <li>Security guidelines specific to your access type</li>
+      <li>Contact details for ongoing support</li>
+    </ul>
+
+    <h2 class="govuk-heading-m">Your request details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Access type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['access-type'] == 'developer' %}
+            Developer tools
+          {% elif data['access-type'] == 'sandbox' %}
+            Sandbox experimentation
+          {% else %}
+            Not specified
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          API type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['api-type'] == 'bedrock' %}
+            AWS Bedrock API
+          {% elif data['api-type'] == 'gpt' %}
+            Azure OpenAI GPT API
+          {% else %}
+            Not specified
+          {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Service code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['service-code'] or 'Not provided' }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Data classification
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['data-classification'] %}
+            {% for classification in data['data-classification'] %}
+              {{ classification | title }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          {% else %}
+            Not specified
+          {% endif %}
+        </dd>
+      </div>
+    </dl>
+
+    <div class="govuk-button-group govuk-!-margin-top-6">
+      <a href="/request-api-key" class="govuk-button govuk-button--secondary">
+        Make another request
+      </a>
+      <a href="/" class="govuk-button govuk-button--secondary">
+        Return to homepage
+      </a>
+      {% if data['access-type'] == 'sandbox' %}
+        <a href="/sandbox" class="govuk-button govuk-button--secondary">
+          Go to sandbox
+        </a>
+      {% elif data['access-type'] == 'developer' %}
+        <a href="/developer-tools" class="govuk-button govuk-button--secondary">
+          Back to developer tools
+        </a>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %} 
